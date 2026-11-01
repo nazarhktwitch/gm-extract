@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gm-extract"
+dynamic = ["version"]
+description = "Extract sprites, tilesets, fonts, audio and strings from GameMaker data.win files"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "NazarHK" }]
+keywords = ["gamemaker", "data.win", "extractor", "assets"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Topic :: Utilities",
+]
+
+[project.scripts]
+gm-extract = "gm_extract.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "gm_extract.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
